@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpotyBrook – lecteur de musique Spotify pour Windows, sans pub</title>
+<meta name="description" content="SpotyBrook est un lecteur de musique Spotify pour Windows, sans aucune pub : pochettes en carrousel, mode One Piece, statut Discord, télécommande sur téléphone et mini-lecteur.">
+<link rel="canonical" href="https://mayzoxx123.github.io/SpotyBrook-Downloads/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SpotyBrook – Spotify pour Windows, sans pub">
+<meta property="og:description" content="Zéro pub, pochettes en carrousel, mode One Piece, statut Discord et télécommande sur téléphone.">
+<meta property="og:url" content="https://mayzoxx123.github.io/SpotyBrook-Downloads/">
+<meta property="og:image" content="https://mayzoxx123.github.io/SpotyBrook-Downloads/apercu.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SpotyBrook","description":"Lecteur de musique Spotify pour Windows sans pub, avec mode One Piece, statut Discord et télécommande sur téléphone.","operatingSystem":"Windows","applicationCategory":"MultimediaApplication","softwareVersion":"328.14","inLanguage":"fr","downloadUrl":"https://github.com/mayzoxx123/SpotyBrook-Downloads/releases/latest","author":{"@type":"Person","name":"Mayrou"}}
+</script>
+<style>
+:root{
+  --bg:#080406; --glass:rgba(255,255,255,.05); --line:rgba(255,255,255,.12);
+  --text:#f1e9e4; --mute:#b9a3a8; --red:#e23a30; --red2:#ff5a47; --wine:#5a0f17;
+  --display:"Big Shoulders Display",Impact,sans-serif; --body:"Hanken Grotesk",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;color:var(--text);font:400 1.0625rem/1.6 var(--body);
+  background:
+   radial-gradient(900px 520px at 50% -80px,rgba(226,58,48,.38),transparent 70%),
+   radial-gradient(700px 500px at 100% 55%,rgba(120,20,35,.35),transparent 70%),
+   radial-gradient(700px 500px at 0% 85%,rgba(120,20,35,.3),transparent 70%),var(--bg)}
+a{color:var(--text)}
+a:focus-visible,.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font:900 1.9rem/1 var(--display);letter-spacing:.03em;color:#fff;text-decoration:none}
+.top nav{display:flex;gap:26px;align-items:center}
+.top nav a{text-decoration:none;color:var(--mute);font-size:.98rem}
+.top nav a:hover{color:#fff}
+
+.btn{display:inline-block;background:linear-gradient(180deg,var(--red2),var(--red));color:#fff;text-decoration:none;font-weight:700;padding:15px 30px;border-radius:999px;
+  box-shadow:0 8px 30px rgba(226,58,48,.45);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(226,58,48,.6)}
+.top .btn{padding:9px 20px;box-shadow:none}
+
+.hero{padding:56px 0 0;text-align:center}
+.nopub{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--red);background:rgba(226,58,48,.12);border-radius:999px;padding:8px 20px 8px 10px;font-weight:700;margin:0 0 26px}
+.nopub b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-size:.8rem}
+h1{font:900 clamp(4.6rem,15vw,11rem)/.82 var(--display);margin:0 0 24px;color:#fff;letter-spacing:-.01em;text-shadow:0 0 60px rgba(226,58,48,.55)}
+.lead{font-size:1.35rem;max-width:34ch;margin:0 auto 30px}
+.dl p{margin:12px 0 0;color:var(--mute);font-size:.92rem}
+
+.shot{margin:56px auto 0;position:relative}
+.shot::before{content:"";position:absolute;inset:8% 4% -4%;background:radial-gradient(closest-side,rgba(226,58,48,.55),transparent);filter:blur(40px);z-index:-1}
+.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.7)}
+
+section{padding:96px 0 0}
+h2{font:900 clamp(2.6rem,6vw,4.4rem)/.92 var(--display);color:#fff;margin:0 0 36px}
+
+.band{background:linear-gradient(100deg,var(--wine),var(--red));padding:56px 0;margin-top:96px}
+.band .wrap{display:grid;grid-template-columns:auto 1fr;gap:20px 56px;align-items:center}
+.zero{font:900 clamp(5rem,16vw,11rem)/.8 var(--display);color:#fff;margin:0}
+.band h2{margin:0 0 10px;font-size:clamp(2rem,4.5vw,3.2rem)}
+.band p{margin:0;max-width:46ch;font-size:1.15rem;color:#ffe9e4}
+.struck{text-decoration:line-through;text-decoration-thickness:.12em}
+
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0}
+.feat div{background:var(--glass);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:12px;padding:20px 22px}
+.feat dt{font-weight:700;color:#fff;font-size:1.1rem;margin-bottom:4px}
+.feat dd{margin:0;color:var(--mute)}
+.feat .hot{border-color:var(--red);background:rgba(226,58,48,.14)}
+
+.op{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:64px;align-items:center}
+.op img{display:block;width:100%;height:auto;border-radius:4px;transform:rotate(-3deg);box-shadow:0 0 70px rgba(226,58,48,.5),0 24px 50px rgba(0,0,0,.7)}
+.op p{color:var(--mute);max-width:44ch;margin:0 0 14px;font-size:1.1rem}
+
+ol{margin:0;padding:0;list-style:none;counter-reset:s;max-width:680px}
+ol li{counter-increment:s;position:relative;padding:0 0 22px 64px}
+ol li::before{content:counter(s);position:absolute;left:0;top:-2px;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font:900 1.4rem/1 var(--display)}
+li strong{color:#fff}
+.note{max-width:680px;border-left:3px solid var(--red);padding:2px 0 2px 16px;margin:8px 0 0;color:var(--mute)}
+
+footer{margin-top:96px;border-top:1px solid var(--line);padding:32px 0 48px;color:var(--mute);font-size:.92rem}
+footer p{margin:0 0 8px;max-width:70ch}
+footer .by{font:900 1.6rem/1 var(--display);color:#fff;margin-bottom:10px}
+footer a{color:var(--mute)}
+
+@media (max-width:820px){
+  .feat{grid-template-columns:1fr}
+  .op{grid-template-columns:1fr;gap:40px}
+  .op img{max-width:280px;margin:0 auto}
+  .band .wrap{grid-template-columns:1fr}
+  .top nav a:not(.btn){display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="logo" href="#">SpotyBrook</a>
+    <nav>
+      <a href="#fonctions">Fonctions</a>
+      <a href="#installer">Installation</a>
+      <a class="btn" href="https://github.com/mayzoxx123/SpotyBrook-Downloads/releases/latest">Télécharger</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <p class="nopub"><b>0</b>Aucune pub dans SpotyBrook</p>
+    <h1>SpotyBrook</h1>
+    <p class="lead">Ton lecteur Spotify pour Windows, sans pub, avec les pochettes en grand et un mode One&nbsp;Piece.</p>
+    <div class="dl">
+      <a class="btn" href="https://github.com/mayzoxx123/SpotyBrook-Downloads/releases/latest">Télécharger pour Windows</a>
+      <p>Version 328.14, installateur de 28,8&nbsp;Mo</p>
+    </div>
+    <div class="shot"><img src="apercu.png" alt="Aperçu de SpotyBrook : bibliothèque, lecteur, détails et paroles, recherche"></div>
+  </header>
+</div>
+
+<div class="band">
+  <div class="wrap">
+    <p class="zero" aria-hidden="true">0 <span class="struck">pub</span></p>
+    <div>
+      <h2>On les a enlevées.</h2>
+      <p>Plus de pubs entre deux titres, plus de bannières, plus de coupures dans ta musique. Tu lances ta playlist et elle joue.</p>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="fonctions" style="padding-top:72px">
+    <h2>Ce que fait SpotyBrook</h2>
+    <dl class="feat">
+      <div class="hot"><dt>Zéro pub</dt><dd>Les pubs sont enlevées : ta musique ne s’arrête jamais pour une annonce.</dd></div>
+      <div><dt>Pochettes en carrousel</dt><dd>Fais tourner les pochettes de ta playlist : le titre voisin se lance tout seul.</dd></div>
+      <div><dt>Mode One Piece</dt><dd>Clique sur le logo : fonds One Piece et transition avec Brook et son Yohoho.</dd></div>
+      <div><dt>Statut Discord</dt><dd>Montre ce que tu écoutes sur ton profil. Tu l’actives ou le coupes dans les réglages.</dd></div>
+      <div><dt>Télécommande sur téléphone</dt><dd>Scanne le QR code des réglages et pilote la musique de ton PC depuis ton téléphone.</dd></div>
+      <div><dt>Playlists par lien</dt><dd>Colle le lien d’une playlist : SpotyBrook récupère les titres et leurs pochettes.</dd></div>
+      <div><dt>Mini-lecteur et raccourcis</dt><dd>Win&nbsp;+&nbsp;J ouvre le mini-lecteur. Tu choisis tes propres raccourcis dans Réglages, Touches.</dd></div>
+    </dl>
+  </section>
+
+  <section id="onepiece">
+    <div class="op">
+      <img src="affiche.png" alt="Avis de recherche de Monkey D. Luffy">
+      <div>
+        <h2>Un mode pour les fans de One&nbsp;Piece</h2>
+        <p>Un clic sur le logo change l’ambiance de l’appli : fonds One Piece, pochettes en avis de recherche et une transition avec Brook.</p>
+        <p>Tu peux revenir au style classique quand tu veux.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="installer">
+    <h2>Installer SpotyBrook</h2>
+    <ol>
+      <li><strong>Télécharge l’installateur.</strong> Le fichier s’appelle SpotyBrook_Setup_v328.14.exe, sur la <a href="https://github.com/mayzoxx123/SpotyBrook-Downloads/releases/latest">page de la dernière version</a>.</li>
+      <li><strong>Double-clique dessus.</strong> Si Windows affiche «&nbsp;Windows a protégé votre ordinateur&nbsp;», clique sur Informations complémentaires, puis sur Exécuter quand même.</li>
+      <li><strong>Laisse l’installation se terminer.</strong> Il faut une connexion internet. Si Python manque sur ton PC, l’installateur te propose de l’installer.</li>
+      <li><strong>Connecte-toi à Spotify</strong> quand la fenêtre s’ouvre. SpotyBrook démarre tout seul.</li>
+    </ol>
+    <p class="note">Cet avertissement de Windows apparaît parce que l’installateur n’est pas encore signé par un éditeur reconnu. Pour désinstaller : Paramètres Windows, Applications, SpotyBrook.</p>
+  </section>
+
+  <footer>
+    <p class="by">by Mayrou</p>
+    <p><a href="https://github.com/mayzoxx123/SpotyBrook-Downloads/releases">Toutes les versions</a></p>
+    <p>SpotyBrook est un projet indépendant, non affilié à Spotify, à Discord ni aux ayants droit de One&nbsp;Piece. Les marques citées appartiennent à leurs propriétaires.</p>
+  </footer>
+</main>
+</body>
+</html>
