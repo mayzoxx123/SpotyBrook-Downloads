@@ -8,6 +8,7 @@
 
 ##  Fonctionnalités
 
+PAS DE PUBBB JAI ENLEVE TOUTES LES PUBBBBB DES MUSIQUES VOUS POURREZ PROFITEERR MDRRRRR
 - Lecteur à pochettes avec carrousel
 - Mode One Piece avec transitions et fonds
 - Statut Discord
